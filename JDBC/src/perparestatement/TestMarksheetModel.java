@@ -11,7 +11,10 @@ public class TestMarksheetModel {
 		
 		//testUpdate();
 		
-		testDelete();
+//		testDelete();
+	
+		
+		
 	}
 	
 	
@@ -78,6 +81,15 @@ public class TestMarksheetModel {
 	}
 	
 	
+	public static void testSearch() {
+		
+		
+		MarksheetModel model = new MarksheetModel();
+		
+		MarksheetBean bean = new MarksheetBean();
+		
+		
+	}
 		
 	
 }

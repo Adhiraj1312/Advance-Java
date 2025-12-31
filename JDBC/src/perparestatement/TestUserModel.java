@@ -10,18 +10,20 @@ public class TestUserModel {
 	private static final String Iterator = null;
 
 
-	public static void main(String[] args) throws ClassNotFoundException, ParseException, SQLException {
+	public static void main(String[] args) throws Exception {
 
-		//testAdd();
+//		testAdd();
 		
-		//testUpdate();
+//		testUpdate();
 		
-		//testDelete();
+//		testDelete();
 		
 		testSearch();
+		
+//		testfindByLogin();
 	}
 
-	public static void testAdd() throws ParseException, ClassNotFoundException, SQLException {
+	public static void testAdd() throws Exception {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD");
 
@@ -29,17 +31,17 @@ public class TestUserModel {
 
 		UserBean bean = new UserBean();
 
-		bean.setId(8);
+//		bean.setId(8);
 
-		bean.setFirstName("Sakshi");
+		bean.setFirstName("Eathun");
 
-		bean.setLastName("Sharma");
+		bean.setLastName("Hunt");
 
-		bean.setLogin("sakshi@gmail.com");
+		bean.setLogin("Hunt@gmail.com");
 
-		bean.setPassword("Sakshi@435");
+		bean.setPassword("Eathun@Hunt");
 
-		bean.setDob(sdf.parse("2001-09-25"));
+		bean.setDob(sdf.parse("2003-05-25"));
 
 		model.add(bean);
 		
@@ -84,6 +86,39 @@ public class TestUserModel {
 		bean.setId(5);
 		
 		model.delete(bean);
+	
+	}
+
+	
+	public static void testfindByLogin() throws ClassNotFoundException, SQLException {
+		
+		
+		UserModel model = new UserModel();
+		
+		UserBean bean  = new UserBean();
+		
+		
+		bean = model.findByLogin("ram123@gmail.com");
+
+		if (bean == null) {
+		
+			System.out.println("user not found");
+		
+		} else {
+			System.out.println(bean.getId());
+			
+			System.out.println(bean.getFirstName());
+			
+			System.out.println(bean.getLastName());
+			
+			System.out.println(bean.getLogin());
+			
+			System.out.println(bean.getPassword());
+			
+			System.out.println(bean.getDob());
+		}
+		
+		
 	}
 	
 
@@ -94,7 +129,9 @@ public class TestUserModel {
 		
 		UserBean bean  = new UserBean();
 		
-		List list = model.search();
+		bean.setFirstName("s");
+		
+		List list = model.search(bean);
 		
 		
 		java.util.Iterator<UserBean> it = list.iterator();
@@ -119,8 +156,12 @@ public class TestUserModel {
 			
 		}
 		
-		
-		
 	}
+	
+	
+	
+	
+	
+	
 	
 }
